@@ -129,9 +129,9 @@ f)	缓存机制
 
 
 
-	a.	一级缓存: 存储作用域为Session，当 Session flush或close之后，该Session中的所有 Cache 就将清空，默认的以及缓存是开启的。
-b.	二级缓存与一级缓存其机制相同，其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache，二级缓存默认是关闭的 。
-c.	对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被clear。
+a.	一级缓存: 存储作用域为Session，当 Session flush或close之后，该Session中的所有 Cache 就将清空，默认的以及缓存是开启的。
+b.	二级缓存与一级缓存其机制相同，其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache，二级缓存默认是关闭的。
+c.	对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有selec		t 中的缓存将被clear。
 d.	当执行一条查询SQL时，流程为： 从二级缓存中进行查询 -> [如果缓存中没有，委托给 BaseExecutor] -> 进入一级缓存中查询 -> [如果也没有] -> 则执行 JDBC 查询。
 一级缓存的使用：
 二级缓存的使用：
